@@ -1,0 +1,7 @@
+name: WakeUp
+author: hazae41
+main: hazae41.wakeup.Main
+api-version: 1.16
+description: Wake up
+version: 1.0
+depend: [ Kotlin, ProtocolLib ]
