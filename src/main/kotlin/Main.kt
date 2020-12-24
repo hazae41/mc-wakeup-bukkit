@@ -28,8 +28,8 @@ class Main : JavaPlugin(), Listener {
     server.pluginManager.registerEvents(this, this)
   }
 
-  fun Player.wakeUp() {
-    val lang = getLang(locale)
+  fun Player.wakeUp(locale: String? = null) {
+    val lang = getLang(locale ?: getLocale())
     val book = ItemStack(Material.WRITTEN_BOOK)
     val meta = book.itemMeta as? BookMeta ?: return
 
@@ -58,7 +58,7 @@ class Main : JavaPlugin(), Listener {
       @EventHandler(priority = EventPriority.MONITOR)
       fun onjoin(e: PlayerLocaleChangeEvent) {
         HandlerList.unregisterAll(this)
-        e.player.wakeUp()
+        e.player.wakeUp(e.locale)
       }
     }, this)
   }
